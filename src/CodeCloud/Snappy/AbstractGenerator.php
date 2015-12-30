@@ -473,7 +473,7 @@ abstract class AbstractGenerator implements GeneratorInterface
      */
     protected function executeCommand($command)
     {
-        exec($command, $output, $exitCode);
+        exec(implode(' ', (array)$command), $output, $exitCode);
 
         if ($exitCode != 0) {
             throw new \Exception('Could not create PDF: ' . $exitCode . ': ' . $output);
