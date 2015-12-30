@@ -147,8 +147,7 @@ abstract class AbstractGenerator implements GeneratorInterface
 
         $command = $this->getCommand($input, $output, $options);
 
-        list($status, $stdout, $stderr) = $this->executeCommand($command);
-        $this->checkProcessStatus($status, $stdout, $stderr, $command);
+        $this->executeCommand($command);
 
         $this->checkOutput($output, $command);
     }
@@ -470,24 +469,15 @@ abstract class AbstractGenerator implements GeneratorInterface
      * a string
      *
      * @param string $command
-     *
-     * @return array(status, stdout, stderr)
+     * @throws \Exception
      */
     protected function executeCommand($command)
     {
-        $process = new Process($command, null, $this->env);
+        exec($command, $output, $exitCode);
 
-        if (false !== $this->timeout) {
-            $process->setTimeout($this->timeout);
+        if ($exitCode != 0) {
+            throw new \Exception('Could not create PDF: ' . $exitCode . ': ' . $output);
         }
-
-        $process->run();
-
-        return array(
-            $process->getExitCode(),
-            $process->getOutput(),
-            $process->getErrorOutput(),
-        );
     }
 
     /**
