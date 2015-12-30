@@ -1,6 +1,6 @@
 <?php
 
-namespace Knp\Snappy;
+namespace CodeCloud\Snappy;
 
 /**
  * Interface for the media generators

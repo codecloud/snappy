@@ -1,6 +1,6 @@
 <?php
 
-namespace Knp\Snappy;
+namespace CodeCloud\Snappy;
 
 /**
  * Use this class to create a snapshot / thumbnail from a HTML page

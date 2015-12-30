@@ -1,8 +1,8 @@
 <?php
 
-namespace Knp\Snappy;
+namespace CodeCloud\Snappy;
 
-use Knp\Snappy\Exception as Exceptions;
+use CodeCloud\Snappy\Exception as Exceptions;
 use Symfony\Component\Process\Process;
 
 /**

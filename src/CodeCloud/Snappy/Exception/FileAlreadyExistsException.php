@@ -1,5 +1,5 @@
 <?php
 
-namespace Knp\Snappy\Exception;
+namespace CodeCloud\Snappy\Exception;
 
 class FileAlreadyExistsException extends \InvalidArgumentException {}
